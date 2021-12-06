@@ -66,16 +66,16 @@
 		//.then(function(resp){return resp.text();})		
 		.then(
 			function(res) {
-				//console.log(res)
-				return res.json();
-			}
+					//console.log(res)
+					return res.json();
+				}
 		)
 		.then(
 			function(data) {
-				//console.log(data)
-				json2table(data,'main');
-			}
-		)
+					//console.log(data)
+					json2table(data,'main');
+				}
+			)
 	}
 
 	
@@ -91,17 +91,18 @@
 		// Build the table body
 		const body = `<tbody>` +
 		  json.map(row => `<tr>${Object.values(row)
-			.map(cell => `<td>${cell}</td>`)
-			.join('')}</tr>`
+				.map(cell => `<td>${cell}</td>`)
+				.join('')}</tr>`
 		  ).join('');
 
 		// Build the final table
 		const table = `
-		<table>
+		<table border='1'>
 		  ${header}
 		  ${body}
 		</table>
 		`;
+  
   
 		// Append the result into #root element
 		document.getElementById(divID).innerHTML = table;
@@ -109,7 +110,7 @@
 
 	function loadPage() {
 		let url=document.getElementById('myurl').value;
-		console.log(url);
+		//console.log(url);
 		loadURL(url, 'main');
 	}
 	
@@ -125,7 +126,7 @@
 	<option value='2.php?f=1.jpg'>page 2:1.jpg</option>
 	<option value='2.php?f=2.jpg'>page 2:2.jpg</option>
 	</select>
-	
+
 	<a href="javascript:loadPage()">loadPage</a>
 	<a href="#"onclick="loadPage()">loadPage</a>
 	<input id="youurl" type='text'> <button onclick="loadPage()">load url</button>
